@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Roster.Client.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using Xamarin.Forms;
@@ -21,6 +23,13 @@ namespace Roster.Client.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(nameof(Title)));
             }
         }
+
+        public ObservableCollection<Person> People { get; } = new ObservableCollection<Person>() {
+            new Person { Name = "Delores Feil", Company = "Legros Group" },
+            new Person { Name = "Ann Zboncak", Company = "Ledner - Ferry" },
+            new Person { Name = "Jaime Lesch", Company = "Herzog and Sons" }
+        };
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public Command UpdateApplicationCommand { get; }
